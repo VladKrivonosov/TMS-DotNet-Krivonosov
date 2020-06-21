@@ -5,11 +5,11 @@ namespace Homework_2
 {
     class Program
     {
-       static string UserDayOfWeek(string str)
+       static string DefWeekDay(string UserDate)
         {
             try
             {
-                DateTime UserDayOfWeek = DateTime.ParseExact(str, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime UserDayOfWeek = DateTime.ParseExact(UserDate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
 
                 int WeekDayNumer = 0;
                 switch (UserDayOfWeek.DayOfWeek)
@@ -37,11 +37,11 @@ namespace Homework_2
                         break;
                 }
 
-                Console.WriteLine($"{str} is {UserDayOfWeek.DayOfWeek}, the {WeekDayNumer} day of the week.");
+                Console.WriteLine($"{UserDate} is {UserDayOfWeek.DayOfWeek}, the {WeekDayNumer} day of the week.");
             }
             catch (Exception)
             {
-                Console.WriteLine("Unable to convert {0} to a date.", str);
+                Console.WriteLine("Unable to convert {0} to a date.", UserDate);
             }
 
             return "";
@@ -51,7 +51,7 @@ namespace Homework_2
         {
             Console.WriteLine("Write date in format: dd/mm/yyyy");
             string UserDate = Console.ReadLine();
-            Console.WriteLine(UserDayOfWeek(UserDate));
+            Console.WriteLine(DefWeekDay(UserDate));
         }
     }
 }
